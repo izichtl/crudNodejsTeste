@@ -6,4 +6,12 @@
 
 
 
+
+### Falta fazer
+-View root
+-View getUsers
+-View getConsultas
+-View Update
+
+
 ```
