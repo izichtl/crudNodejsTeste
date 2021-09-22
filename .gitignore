@@ -1,0 +1,7 @@
+/node_modules
+/taskinfo
+/frontend/node_modules
+/frontend/dist
+/frontend
+/views
+/.env
