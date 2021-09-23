@@ -1,4 +1,3 @@
-const { response } = require("express");
 const { Pool } = require("pg");
 
 function postgresDB(){
@@ -8,38 +7,20 @@ function postgresDB(){
 
 }
 
-//RETORNA TODOS OS USERS
+//RETORNA TODOS OS USUÁRIOS
 postgresDB.prototype.getUsers = async function(requisicao, resposta){
     const pool = new Pool(this.postGresUrl);
     try{
         const allUsers = await pool.query("SELECT * from users WHERE user_id IS NOT NULL");
         resposta.status(200).send(allUsers.rows)
-
     }
     catch(error){
         resposta.status(400).send(error)
     }
     pool.end();
-    
 }
 
-//RETORNA TODAS AS CONSULTAS
-postgresDB.prototype.getConsultas = async function(requisicao, resposta){
-    const pool = new Pool(this.postGresUrl);
-    const { user_id } = requisicao.params;
-    try{
-        const allConsultas = await pool.query("SELECT * from consultas WHERE user_id = ($1)", [user_id]);
-        resposta.status(200).send(allConsultas.rows)
-
-    }
-    catch(error){
-        resposta.status(400).send(error)
-    }
-    pool.end();
-    
-}
-
-//INSERI USUARIO
+//CADASTRA USUÁRIO
 postgresDB.prototype.insertUser = async function(requisicao, resposta){
     const pool = new Pool(this.postGresUrl);
     const { user_name , user_email } = requisicao.body
@@ -54,23 +35,7 @@ postgresDB.prototype.insertUser = async function(requisicao, resposta){
     pool.end();
 }
 
-//INSERI CONSULTA
-postgresDB.prototype.insertConsulta = async function(requisicao, resposta){
-    const pool = new Pool(this.postGresUrl);
-    const { consulta_especialista , consulta_done } = requisicao.body
-    const { user_id } = requisicao.params
-    
-    try{
-        const insertConsulta = await pool.query("INSERT INTO consultas ( consulta_especialista, consulta_done, user_id) VALUES ($1, $2, $3) RETURNING *", [consulta_especialista, consulta_done, user_id]);
-        resposta.status(200).send(insertConsulta.rows);
-    }
-    catch(error){
-        resposta.status(400).send(error);
-    }
-    pool.end();
-}
-
-//ATUALIZA USER
+//ATUALIZA USUÁRIO
 postgresDB.prototype.updateUser = async function(requisicao, resposta){
     const pool = new Pool(this.postGresUrl);
     const { user_id, user_name, user_email } = requisicao.body;
@@ -87,13 +52,10 @@ postgresDB.prototype.updateUser = async function(requisicao, resposta){
     pool.end();
 }
 
-
-
 //DELETA USUÁRIO
 postgresDB.prototype.deleteUser = async function (requisicao, resposta){
     const pool = new Pool(this.postGresUrl);
     const {user_id} = requisicao.params;
-    console.log(user_id)
     try{
         const deleteUser = await pool.query("DELETE FROM users WHERE user_id = ($1) RETURNING *", 
         [user_id]);
@@ -105,11 +67,6 @@ postgresDB.prototype.deleteUser = async function (requisicao, resposta){
     pool.end();
     
 }
-
-
-
-
-
 
 module.exports = {
     postgresDB: postgresDB

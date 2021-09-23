@@ -1,11 +1,12 @@
 {
-  "name": "rickmorty",
+  "name": "test-crudnodejs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node index",
     "serve": "vue-cli-service serve",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "0.21.1",
@@ -29,6 +30,8 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
+    "jest": "^27.2.1",
+    "supertest": "^6.1.6",
     "vue-cli-plugin-vuetify": "2.4.2"
   },
   "eslintConfig": {
