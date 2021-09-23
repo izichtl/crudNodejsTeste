@@ -70,16 +70,15 @@ postgresDB.prototype.insertConsulta = async function(requisicao, resposta){
     pool.end();
 }
 
-//ATUALIZA CONSULTA
-postgresDB.prototype.updateConsulta = async function(requisicao, resposta){
+//ATUALIZA USER
+postgresDB.prototype.updateUser = async function(requisicao, resposta){
     const pool = new Pool(this.postGresUrl);
-    const { consulta_especialista , consulta_done } = requisicao.body;
-    const {consulta_id} = requisicao.params;
+    const { user_id, user_name, user_email } = requisicao.body;
     
     try{
-        const updateConsulta = await pool.query("UPDATE consultas SET consulta_especialista = ($1), consulta_done = ($2) WHERE consulta_id = ($3) RETURNING *", 
-        [consulta_especialista, consulta_done, consulta_id]);
-        resposta.status(200).send(updateConsulta.rows);
+        const updateUser = await pool.query("UPDATE users SET user_name = ($1), user_email = ($2) WHERE user_id = ($3) RETURNING *", 
+        [user_name, user_email, user_id]);
+        resposta.status(200).send(updateUser.rows);
     }
     catch(error){
         
@@ -88,14 +87,17 @@ postgresDB.prototype.updateConsulta = async function(requisicao, resposta){
     pool.end();
 }
 
-//DELETA CONSULTA
-postgresDB.prototype.deleteConsulta = async function (requisicao, resposta){
+
+
+//DELETA USUÁRIO
+postgresDB.prototype.deleteUser = async function (requisicao, resposta){
     const pool = new Pool(this.postGresUrl);
-    const {user_id, consulta_id} = requisicao.params;
+    const {user_id} = requisicao.params;
+    console.log(user_id)
     try{
-        const deleteConsulta = await pool.query("DELETE FROM consultas WHERE consulta_id = ($1) AND user_id = ($2)  RETURNING *", 
-        [consulta_id , user_id]);
-        resposta.status(200).send(deleteConsulta.rows);
+        const deleteUser = await pool.query("DELETE FROM users WHERE user_id = ($1) RETURNING *", 
+        [user_id]);
+        resposta.status(200).send(deleteUser.rows);
     }
     catch(error){
         resposta.status(400).send(error);

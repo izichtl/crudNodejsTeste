@@ -2,11 +2,6 @@
 //criação da tabela usuário. 
 CREATE TABLE users ( user_id serial PRIMARY KEY, user_name VARCHAR(255) NOT NULL, user_email VARCHAR(255) UNIQUE NOT NULL);
 
-//criação da tabela consultas.
-CREATE TABLE consultas ( consulta_id SERIAL PRIMARY KEY, consulta_especialista VARCHAR(150) NOT NULL, consulta_done BOOLEAN NOT NULL, user_id INT NOT NULL, FOREIGN KEY (user_id) REFERENCES users (user_id));
-
 //teste de inserção de usuário. 
 INSERT INTO users ( user_name, user_email) VALUES ('Ivan', 'ivan@ivan.com.br');
 
-//teste de inserção de consulta. 
-INSERT INTO users (consulta_especialista, consulta_done, user_id) VALUES ('Psicologia', 'true', '2');
