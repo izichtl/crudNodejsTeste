@@ -88,9 +88,12 @@ export default {
         alert(`Usuário ${resposta.data[0].user_name} Cadastrado`);
         this.listar();
       }).catch( error => {
-        console.log(error.response.data)
+        
         if(error.response.data.code == 23505){
           alert(`Email já cadastrado.`);
+        }
+        if(error.response.data.code == 3141){
+          alert(`O nome deve conter apenas letras.`);
         }
         
       })
@@ -102,9 +105,12 @@ export default {
         alert(`Usuário ${resposta.data[0].user_name} Atualizado`);
         this.listar();
       }).catch( error => {
-        console.log(error.response.data)
+        
         if(error.response.data.code == 23505){
           alert(`Email já cadastrado.`);
+        }
+        if(error.response.data.code == 3141){
+          alert(`O nome deve conter apenas letras.`);
         }
         
       })

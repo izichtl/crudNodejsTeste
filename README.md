@@ -11,10 +11,16 @@
 - Instale as dependências:
 >npm install
 
+- Crie e configure o banco de dados:
+> siga os passos listados abaixo
+
+- Teste as rotas de usuário:
+> npm test
+
 - Rode a aplicação:
-> npm run dev / npm start
+> npm start
 ---
-### Database - ElephantSQL
+### Configuração do banco de dados - ElephantSQL
 
 - Cadastre-se ==> www.elephantsql.com
 
@@ -38,6 +44,9 @@
 - DELETE /user/:user_id Remove usuário pelo id.
 ---
 ### Padrão JSON
+user_name | Deve conter apenas letras.
+
+user_email  | Deve ser um padrão válido de email.
 
 >{
 "user_name": "Nome do Usuário",

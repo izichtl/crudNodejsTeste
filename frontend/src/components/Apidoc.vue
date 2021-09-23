@@ -13,7 +13,6 @@
                  Host: Heroku | Database: ElephantSQL
                 </p>
                 <hr class="my-1">
-                
                 <h3>Instalação</h3>
                 <hr class="my-1">
                 <br>     
@@ -25,11 +24,19 @@
                 <code class="code" v-pre>npm install</code>   
                 <br>      
                 <br>      
+                <h5>Crie e configure o bando de dados:</h5>     
+                <code class="code" v-pre>siga os passos listados abaixo</code>   
+                <br>      
+                <br>      
+                <h5>Teste as rotas de usuário:</h5>     
+                <code class="code" v-pre>npm test</code>   
+                <br>      
+                <br>      
                 <h5>Rode a aplicação:</h5>     
-                <code class="code" v-pre>npm run dev / npm start</code>   
+                <code class="code" v-pre>npm start</code>   
                 <br>      
                 <br>      
-                <h4>Database - ElephantSQL</h4>
+                <h4>Configuração do banco de dados - ElephantSQL</h4>
                 <hr class="my-1">
                 <br>
                 <h5>Cadastre-se ==> <small class="text-muted"> www.elephantsql.com</small></h5>     
@@ -40,7 +47,7 @@
                 <code class="text-break" v-pre>CREATE TABLE users ( user_id serial PRIMARY KEY, user_name VARCHAR(255) NOT NULL, user_email VARCHAR(255) UNIQUE NOT NULL);</code>
                 <br>
                 <br>
-                <h5><small class="text-muted"> Copie URL de conexão do Postgres e subistitua no arquivo .env </small></h5>     
+                <h5><small class="text-muted"> Copie URL de conexão do Postgres e subistitua no arquivo .env </small></h5>   
                 <br>
                 <h3>Rotas</h3>
                 <hr class="my-1">
@@ -54,16 +61,22 @@
                 <h5>DELETE  /user/:user_id  <small class="text-muted"> Remove usuário pelo id.</small></h5>     
                  
                 <h3>Padrão JSON</h3>
+                <hr class="my-1">
+                <h6>user_name<small class="text-muted"> Deve conter apenas letras</small></h6>     
+                <h6>user_email<small class="text-muted"> Deve ser um padrão válido de email</small></h6>     
                 <pre>
                   <code v-pre>{</code>
                   <code v-pre>  "user_name": "Nome do Usuário",</code>
                   <code v-pre>  "user_email": "Email do Usuário"</code>
                   <code v-pre>}</code>
                 </pre>
-                
+                <br>
+                <br>
+                <hr class="my-2">
                 <p class="lead">
                  Desenvolvido por iZichtl - izichtl@gmail.com
                 </p>
+                <br>
               
 
                 </div>      
