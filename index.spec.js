@@ -2,7 +2,7 @@ const app = require('./server');
 const request = require('supertest');
 
 
-describe('TESTE DE RODAS /USER', () => {
+describe('TESTE DE ROTAS /USER', () => {
 
     it('ROTA ==> GET', async()=>{
         const resposta = await request(app)
@@ -19,7 +19,7 @@ describe('TESTE DE RODAS /USER', () => {
             "user_email": "teste@teste.com"
         });
         expect(resposta.body[0]).toHaveProperty('user_id');
-        expect(resposta.statusCode).toEqual(200);
+        expect(resposta.statusCode).toEqual(201);
         
     })
 
@@ -40,7 +40,7 @@ describe('TESTE DE RODAS /USER', () => {
             "user_email": "teste@teste.com"
         })
         expect(resposta.body[0]).toHaveProperty('user_id');
-        expect(resposta.statusCode).toEqual(200);
+        expect(resposta.statusCode).toEqual(202);
     })
 
     it('ROTA ==> DELETE', async()=>{
@@ -55,6 +55,6 @@ describe('TESTE DE RODAS /USER', () => {
         const resposta = await request(app)
         .delete(`/user/${user_id}`);
         expect(resposta.body[0]).toHaveProperty('user_id');
-        expect(resposta.statusCode).toEqual(200);
+        expect(resposta.statusCode).toEqual(202);
     })
 })

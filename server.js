@@ -1,7 +1,8 @@
 const express = require('express')
 var cors = require('cors') 
-const routes = require('./routes/routes.js');
+const routes = require('./routes/userRoutes.js');
 const views = require('./views/views.js');
+const apiErrorHandler = require('./error/apiErrorHandler');
 
 const app = express()
 app.use(cors())
@@ -11,6 +12,6 @@ require('dotenv').config()
 
 routes(app);
 views(app);
-
+app.use(apiErrorHandler);
 module.exports = app
 

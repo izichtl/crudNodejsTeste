@@ -83,9 +83,16 @@ export default {
       if(!this.user.user_id){
         
         Users.cadastrar(this.user).then(resposta => {
-          this.user = {};
+        this.user = {};
+        console.log(resposta)
         alert(`Usuário ${resposta.data[0].user_name} Cadastrado`);
         this.listar();
+      }).catch( error => {
+        console.log(error.response.data)
+        if(error.response.data.code == 23505){
+          alert(`Email já cadastrado.`);
+        }
+        
       })
       }
         //CADASTRAUSUÁRIO
@@ -94,6 +101,12 @@ export default {
           this.user = {};
         alert(`Usuário ${resposta.data[0].user_name} Atualizado`);
         this.listar();
+      }).catch( error => {
+        console.log(error.response.data)
+        if(error.response.data.code == 23505){
+          alert(`Email já cadastrado.`);
+        }
+        
       })
       }
     },
@@ -149,7 +162,5 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
-}
+
 </style>
