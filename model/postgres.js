@@ -1,3 +1,8 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Realiza a conexão com Postgres
+*           Envia as solicitações ao Postgres
+*/
 const { Pool } = require("pg");
 const ApiError = require('../error/apiError');
 

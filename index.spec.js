@@ -1,3 +1,8 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Realiza os testes unitários da rota /user
+*           
+*/
 const app = require('./server');
 const request = require('supertest');
 

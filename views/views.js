@@ -1,3 +1,8 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Cria as rotas do front-end.
+*           Retorna o front-end ao browser.
+*/
 const serveStatic = require('serve-static')
 const path = require('path')
 

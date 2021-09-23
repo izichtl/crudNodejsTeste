@@ -1,3 +1,9 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Configura o servidor
+*           Chama os middlewares
+*/
+
 const express = require('express')
 var cors = require('cors') 
 const routes = require('./routes/userRoutes.js');

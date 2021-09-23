@@ -1,3 +1,10 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Captura os erros do request/servidor.
+*           
+*/
+
+
 const ApiError = require('./apiError');
 
 function apiErrorHandler(error, requisicao, resposta, next){

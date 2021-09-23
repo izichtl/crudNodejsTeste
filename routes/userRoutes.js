@@ -1,3 +1,8 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Cria as rotas de usuário.
+*           
+*/
 const userController = require('../controller/userController');
 
 module.exports = function(app) {

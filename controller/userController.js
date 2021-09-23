@@ -1,6 +1,13 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Realiza a validação dos parametros da request
+*           Envia a request ao model para processo
+*/
+
 const {postgresDB} = require('../model/postgres');
 const ApiError = require('../error/apiError');
 const {regexEmailA, regexEmailB, regexName} = require('../helpers/regex');
+
 
 class userController {
     //envia requisicao de busca ao model

@@ -1,3 +1,8 @@
+/*
+*Autor:     Ivan Zichtl - 23/09/2012
+*Objetivo:  Padroniza ao erros da request
+*        
+*/
 class ApiError {
     constructor(code, message) {
         this.code = code;
